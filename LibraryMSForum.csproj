@@ -3,9 +3,26 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Components\Library.tsx" />
+    <None Remove="Components\LogOut.tsx" />
+    <None Remove="Components\ManageCenter.tsx" />
+    <None Remove="Components\MyBook.tsx" />
+    <None Remove="Utility.tsx" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Components\Library.tsx" />
+    <TypeScriptCompile Include="Components\LogOut.tsx" />
+    <TypeScriptCompile Include="Components\ManageCenter.tsx" />
+    <TypeScriptCompile Include="Components\MyBook.tsx" />
+    <TypeScriptCompile Include="Utility.tsx" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="node &quot;$(ProjectDir)node_modules\webpack\bin\webpack.js&quot;&#xD;&#xA;" />
+  </Target>
 </Project>
