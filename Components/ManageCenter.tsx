@@ -139,13 +139,13 @@ export class ManageCenter extends React.Component<{}, {cardId,card:Card,tip,tip1
     }
     async addCard() {
         const data = await Utility.addCard(this.state.card);
-        if (data=="ojbk") this.setState({ tip1: "添加成功" });
+        if (data == "ojbk") this.setState({ card:new Card(), tip1: "添加成功" });
         else this.setState({ tip1: "添加失败" });
     }
     async removeCard() {
         const data = await Utility.removeCard(this.state.cardId);
         if (data == 'ojbk') this.setState({ tip2: "注销成功" });
-        else this.setState({ tip2: "注销失败" });
+        else this.setState({ tip2: "注销失败,请先还完书籍" });
     }
     async add() {
         if (!this.state.book.name) {
@@ -292,7 +292,7 @@ export class ManageCenter extends React.Component<{}, {cardId,card:Card,tip,tip1
                         multiple
                     />
 
-                    <div className="column">
+                    <div className="column" style={{ height: "300px", justifyContent:"space-between" }}>
                         <h3>添加借书证</h3>
 
                         <div className="row">
@@ -318,9 +318,9 @@ export class ManageCenter extends React.Component<{}, {cardId,card:Card,tip,tip1
                         <h3>{this.state.tip1}</h3>
                     </div>
 
-                    <div className="column">
+                    <div className="column" style={{ height: "200px", justifyContent:"space-between" }}>
                         <h3>注销借书证</h3>
-                        <label className="category-label">卡号</label>
+                        <label className="category-label">借书卡姓名</label>
                         <input type="text" onChange={this.handleRemoveCard.bind(this)} value={this.state.cardId} />
                         <Button bsStyle="danger" onClick={this.removeCard.bind(this)}>注销</Button>
                         <h3>{this.state.tip2}</h3>

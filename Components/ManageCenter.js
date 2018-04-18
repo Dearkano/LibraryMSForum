@@ -191,7 +191,7 @@ var ManageCenter = /** @class */ (function (_super) {
                     case 1:
                         data = _a.sent();
                         if (data == "ojbk")
-                            this.setState({ tip1: "添加成功" });
+                            this.setState({ card: new Card(), tip1: "添加成功" });
                         else
                             this.setState({ tip1: "添加失败" });
                         return [2 /*return*/];
@@ -210,7 +210,7 @@ var ManageCenter = /** @class */ (function (_super) {
                         if (data == 'ojbk')
                             this.setState({ tip2: "注销成功" });
                         else
-                            this.setState({ tip2: "注销失败" });
+                            this.setState({ tip2: "注销失败,请先还完书籍" });
                         return [2 /*return*/];
                 }
             });
@@ -351,7 +351,7 @@ var ManageCenter = /** @class */ (function (_super) {
                 React.createElement("div", { className: "column", style: { justifyContent: "flex-start" } },
                     React.createElement("label", { htmlFor: "upload", title: "上传本地文件" }, "\u4E0A\u4F20\u672C\u5730\u6587\u4EF6"),
                     React.createElement("input", { type: "file", id: "upload", accept: "*", onClick: function (e) { return e.stopPropagation(); }, onChange: function (e) { return _this.handleUpload(e.target.files); }, multiple: true }),
-                    React.createElement("div", { className: "column" },
+                    React.createElement("div", { className: "column", style: { height: "300px", justifyContent: "space-between" } },
                         React.createElement("h3", null, "\u6DFB\u52A0\u501F\u4E66\u8BC1"),
                         React.createElement("div", { className: "row" },
                             React.createElement("label", { className: "category-label" }, "\u59D3\u540D"),
@@ -367,9 +367,9 @@ var ManageCenter = /** @class */ (function (_super) {
                             React.createElement("input", { type: "text", onChange: this.handleCardPassword.bind(this), value: this.state.card.password })),
                         React.createElement(react_bootstrap_1.Button, { bsStyle: "success", onClick: this.addCard.bind(this) }, "\u6CE8\u518C"),
                         React.createElement("h3", null, this.state.tip1)),
-                    React.createElement("div", { className: "column" },
+                    React.createElement("div", { className: "column", style: { height: "200px", justifyContent: "space-between" } },
                         React.createElement("h3", null, "\u6CE8\u9500\u501F\u4E66\u8BC1"),
-                        React.createElement("label", { className: "category-label" }, "\u5361\u53F7"),
+                        React.createElement("label", { className: "category-label" }, "\u501F\u4E66\u5361\u59D3\u540D"),
                         React.createElement("input", { type: "text", onChange: this.handleRemoveCard.bind(this), value: this.state.cardId }),
                         React.createElement(react_bootstrap_1.Button, { bsStyle: "danger", onClick: this.removeCard.bind(this) }, "\u6CE8\u9500"),
                         React.createElement("h3", null, this.state.tip2)))));

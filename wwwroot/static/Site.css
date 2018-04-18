@@ -100,7 +100,7 @@
 }
 .result{
     justify-content:flex-start;
-    width:800px;
+    width:1000px;
 }
 .result table tbody tr td{
     display:table-cell;
