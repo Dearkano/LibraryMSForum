@@ -1,5 +1,5 @@
-﻿
-function formAuthorization() {
+﻿import { Book } from './Components/ManageCenter';
+export function formAuthorization() {
     const token = localStorage.getItem("token");
     const headers = { "Authorization": token, "Content-Type": "application/json" };
     return headers;
@@ -79,4 +79,32 @@ export async function getMyBooks() {
     const headers = formAuthorization();
     const response = await fetch(url, { headers });
     return await response.json();
+}
+
+export async function add(book: Book) {
+    const url = "books/add";
+    const response = await CC98Fetch(url, JSON.stringify(book));
+    if (response.status == 200)
+        return "ojbk";
+    else
+        return "error";
+}
+
+export async function addCard(card) {
+    const url = `card/add`;
+    const response = await CC98Fetch(url, JSON.stringify(card));
+    let str;
+    if (response.status == 200)str="ojbk";
+    else str = "error";
+    return str;
+}
+
+export async function removeCard(id) {
+    const url = `http://localhost:62376/api/card/remove/${id}`;
+    const headers = formAuthorization();
+    const response = await fetch(url, { headers });
+    let str;
+    if (response.status == 200) str = "ojbk";
+    else str = "error";
+    return str;
 }

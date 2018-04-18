@@ -81,7 +81,7 @@ var MyBookDisplay = /** @class */ (function (_super) {
             React.createElement("td", null, this.state.data.record.borrow_date),
             React.createElement("td", null, this.state.data.record.return_date),
             React.createElement("td", null,
-                React.createElement(react_bootstrap_1.Button, { style: { width: "80px" }, bsStyle: this.state.data.book.stock == 0 ? "danger" : bs, disabled: this.state.data.book.stock == 0 && this.state.bookState.borrowState == 0 || this.state.bookState.borrowState == 2 ? true : false, onClick: this.state.bookState.borrowState == 1 ? this.returnBook.bind(this) : this.borrow.bind(this) }, this.state.bookState.borrowState == 0 ? "借阅" : this.state.bookState.borrowState == 1 ? "还书" : "待审核")));
+                React.createElement(react_bootstrap_1.Button, { style: { width: "80px" }, bsStyle: this.state.data.book.stock == 0 && this.state.bookState.borrowState == 0 ? "danger" : bs, disabled: this.state.data.book.stock == 0 && this.state.bookState.borrowState == 0 || this.state.bookState.borrowState == 2 ? true : false, onClick: this.state.bookState.borrowState == 1 ? this.returnBook.bind(this) : this.borrow.bind(this) }, this.state.bookState.borrowState == 0 ? "借阅" : this.state.bookState.borrowState == 1 ? "还书" : "待审核")));
     };
     return MyBookDisplay;
 }(React.Component));
@@ -111,7 +111,7 @@ var MyBook = /** @class */ (function (_super) {
         return React.createElement(MyBookDisplay, { data: book });
     };
     MyBook.prototype.render = function () {
-        return React.createElement("div", { className: "column result", style: { alignSelf: "center" } },
+        return React.createElement("div", { className: "column result", style: { alignSelf: "center", width: "1300px" } },
             React.createElement(react_bootstrap_1.Table, null,
                 React.createElement("thead", null,
                     React.createElement("tr", null,

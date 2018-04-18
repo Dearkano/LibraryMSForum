@@ -6,6 +6,7 @@ function formAuthorization() {
     var headers = { "Authorization": token, "Content-Type": "application/json" };
     return headers;
 }
+exports.formAuthorization = formAuthorization;
 function CC98Fetch(_url, jsonStr) {
     return tslib_1.__awaiter(this, void 0, void 0, function () {
         var headers, url, response;
@@ -227,3 +228,64 @@ function getMyBooks() {
     });
 }
 exports.getMyBooks = getMyBooks;
+function add(book) {
+    return tslib_1.__awaiter(this, void 0, void 0, function () {
+        var url, response;
+        return tslib_1.__generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    url = "books/add";
+                    return [4 /*yield*/, CC98Fetch(url, JSON.stringify(book))];
+                case 1:
+                    response = _a.sent();
+                    if (response.status == 200)
+                        return [2 /*return*/, "ojbk"];
+                    else
+                        return [2 /*return*/, "error"];
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.add = add;
+function addCard(card) {
+    return tslib_1.__awaiter(this, void 0, void 0, function () {
+        var url, response, str;
+        return tslib_1.__generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    url = "card/add";
+                    return [4 /*yield*/, CC98Fetch(url, JSON.stringify(card))];
+                case 1:
+                    response = _a.sent();
+                    if (response.status == 200)
+                        str = "ojbk";
+                    else
+                        str = "error";
+                    return [2 /*return*/, str];
+            }
+        });
+    });
+}
+exports.addCard = addCard;
+function removeCard(id) {
+    return tslib_1.__awaiter(this, void 0, void 0, function () {
+        var url, headers, response, str;
+        return tslib_1.__generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    url = "http://localhost:62376/api/card/remove/" + id;
+                    headers = formAuthorization();
+                    return [4 /*yield*/, fetch(url, { headers: headers })];
+                case 1:
+                    response = _a.sent();
+                    if (response.status == 200)
+                        str = "ojbk";
+                    else
+                        str = "error";
+                    return [2 /*return*/, str];
+            }
+        });
+    });
+}
+exports.removeCard = removeCard;

@@ -73,6 +73,20 @@ var BookDisplay = /** @class */ (function (_super) {
             });
         });
     };
+    BookDisplay.prototype.componentWillReceiveProps = function (newProps) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var bookState;
+            return tslib_1.__generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Utility.bookState(newProps.book.id)];
+                    case 1:
+                        bookState = _a.sent();
+                        this.setState({ book: newProps.book, bookState: bookState });
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     BookDisplay.prototype.render = function () {
         var bs = "success";
         if (this.state.bookState.borrowState == 1)
@@ -90,7 +104,7 @@ var BookDisplay = /** @class */ (function (_super) {
             React.createElement("td", null, this.state.book.total),
             React.createElement("td", null, moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')),
             React.createElement("td", null,
-                React.createElement(react_bootstrap_1.Button, { style: { width: "80px" }, bsStyle: this.state.book.stock == 0 ? "danger" : bs, disabled: this.state.book.stock == 0 && this.state.bookState.borrowState == 0 || this.state.bookState.borrowState == 2 ? true : false, onClick: this.state.bookState.borrowState == 1 ? this.returnBook.bind(this) : this.borrow.bind(this) }, this.state.bookState.borrowState == 0 ? "借阅" : this.state.bookState.borrowState == 1 ? "还书" : "待审核")));
+                React.createElement(react_bootstrap_1.Button, { style: { width: "80px" }, bsStyle: this.state.book.stock == 0 && this.state.bookState.borrowState == 0 ? "danger" : bs, disabled: this.state.book.stock == 0 && this.state.bookState.borrowState == 0 || this.state.bookState.borrowState == 2 ? true : false, onClick: this.state.bookState.borrowState == 1 ? this.returnBook.bind(this) : this.borrow.bind(this) }, this.state.bookState.borrowState == 0 ? "借阅" : this.state.bookState.borrowState == 1 ? "还书" : "待审核")));
     };
     return BookDisplay;
 }(React.Component));
@@ -128,6 +142,8 @@ var Library = /** @class */ (function (_super) {
         this.setState({ type: e.target.value });
     };
     Library.prototype.convert = function (book) {
+        console.log("---");
+        console.log(book);
         return React.createElement(BookDisplay, { book: book });
     };
     Library.prototype.search = function () {

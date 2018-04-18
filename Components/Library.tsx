@@ -32,6 +32,10 @@ export class BookDisplay extends React.Component<{ book }, {book,bookState }>{
         const bookState = await Utility.bookState(this.props.book.id);
         this.setState({ bookState: bookState });
     }
+    async componentWillReceiveProps(newProps) {
+        const bookState = await Utility.bookState(newProps.book.id);
+        this.setState({ book: newProps.book, bookState: bookState  })
+    }
     render() {
         let bs = "success";
         if (this.state.bookState.borrowState==1)
@@ -49,7 +53,7 @@ export class BookDisplay extends React.Component<{ book }, {book,bookState }>{
             <td>{this.state.book.total}</td>
             <td>{moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')}</td>
             <td>
-                <Button style={{ width: "80px" }} bsStyle={this.state.book.stock == 0 ? "danger" : bs} disabled={this.state.book.stock == 0 && this.state.bookState.borrowState==0 || this.state.bookState.borrowState == 2 ? true : false} onClick={this.state.bookState.borrowState == 1 ? this.returnBook.bind(this) : this.borrow.bind(this)}>
+                <Button style={{ width: "80px" }} bsStyle={this.state.book.stock == 0 && this.state.bookState.borrowState==0 ? "danger" : bs} disabled={this.state.book.stock == 0 && this.state.bookState.borrowState == 0 || this.state.bookState.borrowState == 2 ? true : false} onClick={this.state.bookState.borrowState == 1 ? this.returnBook.bind(this) : this.borrow.bind(this)}>
                     {this.state.bookState.borrowState == 0 ? "借阅" : this.state.bookState.borrowState==1?"还书":"待审核"}
                 </Button>
             </td>
@@ -88,6 +92,8 @@ export class Library extends React.Component<{}, { name, fromyear, toyear, press
         this.setState({ type: e.target.value });
     }
     convert(book) {
+        console.log("---");
+        console.log(book);
         return <BookDisplay book={book} />;
     }
   

@@ -33,101 +33,191 @@ export class MainPage extends React.Component<{}, { key }> {
                 onSelect={this.handleSelect}
                 id="controlled-tab-example"
             >
-                <Tab eventKey={1} title="简历样例1">
+                <Tab eventKey={1} title="科幻">
                     <Table striped bordered condensed hover>
                         <thead>
-                            <tr>
-                                <th>条目</th>
-                                <th>内容</th>
+                            <tr>  
+                                    <th>书名</th>
+                                    <th>作者</th>
+                                    <th>出版社</th>
+                                    <th>年份</th>
+                                    <th>价格</th>
+                                    <th>库存</th>
+                                    <th>总量</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>姓名</td>
-                                <td>比尔·盖茨</td>
+                                <td>三体</td>
+                                <td>刘慈欣</td>
+                                <td>重庆出版社</td>
+                                <td>2005</td>
+                                <td>33.00</td>
+                                <td>12</td>
+                                <td>20</td>
                             </tr>
                             <tr>
-                                <td>年龄</td>
-                                <td>63</td>
+                                    <td>银河帝国：基地</td>
+                                    <td>阿西莫夫</td>
+                                    <td>江苏文艺出版社</td>
+                                    <td>1940</td>
+                                    <td>41.00</td>
+                                    <td>2</td>
+                                    <td>10</td>
                             </tr>
                             <tr>
-                                <td>学历</td>
-                                <td >哈佛大学肄业</td>
+                                    <td>沙丘</td>
+                                    <td>弗兰克・赫伯特 </td>
+                                    <td>江苏凤凰文艺出版社</td>
+                                    <td>1950</td>
+                                    <td>66.00</td>
+                                    <td>4</td>
+                                    <td>5</td>
                             </tr>
                             <tr>
-                                <td>论文数量</td>
-                                <td >1</td>
+                                    <td>万有引力之虹</td>
+                                    <td>托马斯・品钦</td>
+                                    <td>译林出版社</td>
+                                    <td>1973</td>
+                                    <td>53.00</td>
+                                    <td>7</td>
+                                    <td>8</td>
                             </tr>
                             <tr>
-                                <td>专利数量</td>
-                                <td >3000/年</td>
+                                    <td>漫长的明天</td>
+                                    <td>雷・布拉凯特 </td>
+                                    <td>漓江出版社</td>
+                                    <td>1955</td>
+                                    <td>43.00</td>
+                                    <td>0</td>
+                                    <td>2</td>
                             </tr>
                         </tbody>
                     </Table>
         </Tab>
-                <Tab eventKey={2} title="简历样例2">
-                    <Table striped bordered condensed hover>
-                        <thead>
-                            <tr>
-                                <th>条目</th>
-                                <th>内容</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>姓名</td>
-                                <td>御坂美琴</td>
-                            </tr>
-                            <tr>
-                                <td>年龄</td>
-                                <td>16</td>
-                            </tr>
-                            <tr>
-                                <td>学历</td>
-                                <td >常盘台中学</td>
-                            </tr>
-                            <tr>
-                                <td>论文数量</td>
-                                <td >0</td>
-                            </tr>
-                            <tr>
-                                <td>专利数量</td>
-                                <td >1（超电磁炮）</td>
-                            </tr>
-                        </tbody>
-                    </Table>
+                <Tab eventKey={2} title="历史">
+                        <Table striped bordered condensed hover>
+                            <thead>
+                                <tr>
+                                    <th>书名</th>
+                                    <th>作者</th>
+                                    <th>出版社</th>
+                                    <th>年份</th>
+                                    <th>价格</th>
+                                    <th>库存</th>
+                                    <th>总量</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>三体</td>
+                                    <td>刘慈欣</td>
+                                    <td>重庆出版社</td>
+                                    <td>2005</td>
+                                    <td>33.00</td>
+                                    <td>12</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>银河帝国：基地</td>
+                                    <td>阿西莫夫</td>
+                                    <td>江苏文艺出版社</td>
+                                    <td>1940</td>
+                                    <td>41.00</td>
+                                    <td>2</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>沙丘</td>
+                                    <td>弗兰克・赫伯特 </td>
+                                    <td>江苏凤凰文艺出版社</td>
+                                    <td>1950</td>
+                                    <td>66.00</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>万有引力之虹</td>
+                                    <td>托马斯・品钦</td>
+                                    <td>译林出版社</td>
+                                    <td>1973</td>
+                                    <td>53.00</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>漫长的明天</td>
+                                    <td>雷・布拉凯特 </td>
+                                    <td>漓江出版社</td>
+                                    <td>1955</td>
+                                    <td>43.00</td>
+                                    <td>0</td>
+                                    <td>2</td>
+                                </tr>
+                            </tbody>
+                        </Table>
         </Tab>
-                <Tab eventKey={3} title="简历样例3" >
-                    <Table striped bordered condensed hover>
-                        <thead>
-                            <tr>
-                                <th>条目</th>
-                                <th>内容</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>姓名</td>
-                                <td>吴朝晖</td>
-                            </tr>
-                            <tr>
-                                <td>年龄</td>
-                                <td>52</td>
-                            </tr>
-                            <tr>
-                                <td>学历</td>
-                                <td >浙江大学博士</td>
-                            </tr>
-                            <tr>
-                                <td>论文数量</td>
-                                <td >180</td>
-                            </tr>
-                            <tr>
-                                <td>专利数量</td>
-                                <td >120</td>
-                            </tr>
-                        </tbody>
-                    </Table>
+                <Tab eventKey={3} title="计算机" >
+                        <Table striped bordered condensed hover>
+                            <thead>
+                                <tr>
+                                    <th>书名</th>
+                                    <th>作者</th>
+                                    <th>出版社</th>
+                                    <th>年份</th>
+                                    <th>价格</th>
+                                    <th>库存</th>
+                                    <th>总量</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>三体</td>
+                                    <td>刘慈欣</td>
+                                    <td>重庆出版社</td>
+                                    <td>2005</td>
+                                    <td>33.00</td>
+                                    <td>12</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>银河帝国：基地</td>
+                                    <td>阿西莫夫</td>
+                                    <td>江苏文艺出版社</td>
+                                    <td>1940</td>
+                                    <td>41.00</td>
+                                    <td>2</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>沙丘</td>
+                                    <td>弗兰克・赫伯特 </td>
+                                    <td>江苏凤凰文艺出版社</td>
+                                    <td>1950</td>
+                                    <td>66.00</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>万有引力之虹</td>
+                                    <td>托马斯・品钦</td>
+                                    <td>译林出版社</td>
+                                    <td>1973</td>
+                                    <td>53.00</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>漫长的明天</td>
+                                    <td>雷・布拉凯特 </td>
+                                    <td>漓江出版社</td>
+                                    <td>1955</td>
+                                    <td>43.00</td>
+                                    <td>0</td>
+                                    <td>2</td>
+                                </tr>
+                            </tbody>
+                        </Table>
         </Tab>
                 </Tabs>
                 </div>
